@@ -20,7 +20,7 @@ public class Arete {
         return this.sommet2;
     }
 
-    public int getPoids(){
+    public int getPoids() {
         return this.poids;
     }
 
