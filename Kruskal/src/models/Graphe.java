@@ -14,6 +14,14 @@ public class Graphe {
         this.list_sommets = new ArrayList<>();
     }
 
+    public ArrayList<Arete> getArete() {
+        return this.list_aretes;
+    }
+
+    public ArrayList<Integer> getSommet() {
+        return this.list_sommets;
+    }
+
     public void ajoutArete(Arete a) throws Exception {
         if (!this.contientArete(a)) {
             this.list_aretes.add(a);
