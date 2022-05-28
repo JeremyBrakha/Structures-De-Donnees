@@ -1,4 +1,4 @@
-package Kruskal;
+package kruskal;
 
 import models.Graphe;
 
