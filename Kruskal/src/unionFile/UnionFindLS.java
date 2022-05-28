@@ -5,7 +5,6 @@ import liste.listeChaineeSimple.ListeChaineeS;
 import liste.listeChaineeSimple.Noeud;
 import utils.LireLigne;
 
-import java.io.IOException;
 import java.util.*;
 
 public class UnionFindLS {
@@ -69,7 +68,7 @@ public class UnionFindLS {
 
         //Détermination du représentant au hasard
         int new_rep;
-        Random ran = new Random();
+        //Random ran = new Random();
         int nxt = LireLigne.entierAleatoire(0, 1);
         if(nxt == 0){
             new_rep = e1.getRepresentant();
