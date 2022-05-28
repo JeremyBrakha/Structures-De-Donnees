@@ -6,7 +6,7 @@ public class EnsembleLS {
     private int representant;
     private ListeChaineeS element;
 
-    public EnsembleLS(int r, ListeChaineeS l){
+    public EnsembleLS(int r, ListeChaineeS l) {
         this.representant = r;
         this.element = l;
     }
@@ -19,7 +19,8 @@ public class EnsembleLS {
         this.representant = r;
     }
 
-    public ListeChaineeS getListe(){
+    public ListeChaineeS getListe() {
         return this.element;
     }
+
 }

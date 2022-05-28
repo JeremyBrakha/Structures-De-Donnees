@@ -11,9 +11,9 @@ public class Noeud {
     }
 
     public Noeud(int valeur, Noeud suivant) {
-		this.valeur = valeur;
-		this.nSuivant = suivant;
-	}
+        this.valeur = valeur;
+        this.nSuivant = suivant;
+    }
 
     public int getValeur() {
         return this.valeur;
@@ -23,7 +23,7 @@ public class Noeud {
         return this.nSuivant;
     }
 
-    public void setSuivant(Noeud nextNoeud){
+    public void setSuivant(Noeud nextNoeud) {
         this.nSuivant = nextNoeud;
     }
 
