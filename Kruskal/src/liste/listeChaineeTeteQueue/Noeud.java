@@ -5,11 +5,24 @@ public class Noeud {
     private ListeChaineeTQ liste;
     private Noeud nSuivant;
 
-    private Noeud(int valeur, ListeChaineeTQ liste, Noeud nSuivant) {
+    public Noeud(int valeur) {
+        this.valeur = valeur;
+        this.liste = null;
+        this.nSuivant = null;
+    }
+
+    public Noeud(int valeur, ListeChaineeTQ liste, Noeud nSuivant) {
         this.valeur = valeur;
         this.liste = liste;
         this.nSuivant = nSuivant;
         
+    }
+
+    public Noeud(int valeur, ListeChaineeTQ liste) {
+        this.valeur = valeur;
+        this.liste = liste;
+        this.nSuivant = null;
+
     }
 
     public int getValeur() {
