@@ -22,5 +22,4 @@ public class EnsembleLS {
     public ListeChaineeS getListe() {
         return this.element;
     }
-
 }
