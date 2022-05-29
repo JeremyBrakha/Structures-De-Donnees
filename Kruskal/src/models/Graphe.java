@@ -96,11 +96,11 @@ public class Graphe {
         int rand_poids;
         int rand_s1;
         int rand_s2;
+        Arete a;
         for (int i = 0; i < (nbAreteMax - (taille_max - 1)); i++) {
 
             rand_poids = LireLigne.entierAleatoire(1, 1000);
             System.out.println(rand_poids);
-            Arete a;
             do {
                 rand_s1 = LireLigne.entierAleatoire(0, taille_max - 1);
                 rand_s2 = LireLigne.entierAleatoire(0, taille_max - 1);
@@ -118,6 +118,7 @@ public class Graphe {
             System.out.println(i);
         }
         System.out.println("\nListe Aretes :");
+        System.out.println("Nombre d'arêtes : " + this.list_aretes.size());
         for (Arete a : list_aretes) {
             System.out.println(a.getSommet1() + " --- " + a.getSommet2() + " : " + a.getPoids());
         }
