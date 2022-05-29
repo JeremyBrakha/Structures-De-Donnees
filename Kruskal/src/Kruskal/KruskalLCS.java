@@ -43,7 +43,7 @@ public class KruskalLCS {
             }
             ufls.affichePartition();
             System.out.println("\nMeilleur chemin : ");
-            for(Arete a : bestArete){
+            for (Arete a : bestArete) {
                 a.afficheArete();
             }
             k++;
@@ -81,7 +81,7 @@ public class KruskalLCS {
             }
             ufls.affichePartition();
             System.out.println("\nMeilleur chemin : ");
-            for(Arete a : bestArete){
+            for (Arete a : bestArete) {
                 a.afficheArete();
             }
             k++;

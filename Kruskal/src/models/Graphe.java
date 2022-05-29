@@ -31,12 +31,14 @@ public class Graphe {
     }
 
     public void ajoutSommet(int s) {
-        if (!this.list_sommets.contains(s)) this.list_sommets.add(s);
+        if (!this.list_sommets.contains(s))
+            this.list_sommets.add(s);
     }
 
     public boolean contientSommet(int new_so) {
         for (Integer i : this.list_sommets) {
-            if (i == new_so) return true;
+            if (i == new_so)
+                return true;
         }
         return false;
     }
@@ -63,7 +65,6 @@ public class Graphe {
             Arete a = new Arete(this.list_sommets.get(i), this.list_sommets.get(i + 1), rand_poids);
             this.ajoutArete(a);
         }
-
     }
 
     public void creerGraphPeuDense(int taille_max) throws Exception {
@@ -77,14 +78,14 @@ public class Graphe {
         for (int i = 0; i < (nbAreteMax - (taille_max - 1)); i++) {
 
             rand_poids = LireLigne.entierAleatoire(1, 1000);
-            //System.out.println(rand_poids);
+            // System.out.println(rand_poids);
             do {
                 rand_s1 = LireLigne.entierAleatoire(0, taille_max - 1);
                 rand_s2 = LireLigne.entierAleatoire(0, taille_max - 1);
                 a = new Arete(this.list_sommets.get(rand_s1), this.list_sommets.get(rand_s2), rand_poids);
             } while (rand_s1 == rand_s2 || this.contientArete(a));
 
-            //System.out.println(rand_s1 + " --- " + rand_s2);
+            // System.out.println(rand_s1 + " --- " + rand_s2);
             this.ajoutArete((a));
         }
     }
@@ -92,7 +93,7 @@ public class Graphe {
     public void creerGraphTresDense(int taille_max) throws Exception {
 
         this.creerBasicGraph(taille_max);
-        int nbAreteMax =(int) Math.floor(Math.pow(taille_max, 2) / 3);
+        int nbAreteMax = (int) Math.floor(Math.pow(taille_max, 2) / 3);
         int rand_poids;
         int rand_s1;
         int rand_s2;

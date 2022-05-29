@@ -24,7 +24,7 @@ public class Arete {
         return this.poids;
     }
 
-    public void afficheArete(){
+    public void afficheArete() {
         System.out.println(this.sommet1 + " --- " + this.sommet2 + " : " + this.poids);
     }
 
