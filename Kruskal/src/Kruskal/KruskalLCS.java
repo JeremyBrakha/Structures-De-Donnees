@@ -43,9 +43,12 @@ public class KruskalLCS {
             }
             ufls.affichePartition();
             System.out.println("\nMeilleur chemin : ");
+            int poidsTotal = 0;
             for (Arete a : bestArete) {
                 a.afficheArete();
+                poidsTotal += a.getPoids();
             }
+            System.out.println("Poids total du meilleur chemin : " + poidsTotal);
             k++;
         }
     }
@@ -55,7 +58,7 @@ public class KruskalLCS {
         Scanner sc = new Scanner(System.in);
         System.out.println("Ecrire un nombre (10, 100 ou 1000): ");
         int nSommets = sc.nextInt();
-        g.creerGraphPeuDense(nSommets);
+        g.creerGraphTresDense(nSommets);
 
         UnionFindLS ufls = new UnionFindLS();
 
@@ -81,9 +84,12 @@ public class KruskalLCS {
             }
             ufls.affichePartition();
             System.out.println("\nMeilleur chemin : ");
+            int poidsTotal = 0;
             for (Arete a : bestArete) {
                 a.afficheArete();
+                poidsTotal += a.getPoids();
             }
+            System.out.println("Poids total du meilleur chemin : " + poidsTotal);
             k++;
         }
     }
