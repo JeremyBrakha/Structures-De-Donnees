@@ -46,4 +46,21 @@ public class ListeChaineeTQ {
         }
         return present;
     }
+
+    public String toString() {
+        String s = "[ ";
+
+        if (this.listeVide())
+            s = s + "Chaîne vide";
+        else {
+            // Parcours de la liste
+            Noeud p = tete;
+            while (p != null) {
+                s = s + p.getValeur() + " ";
+                // Avancer d'un noeud dans la liste
+                p = p.getSuivant();
+            }
+        }
+        return s + "]";
+    }
 }

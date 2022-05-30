@@ -15,15 +15,14 @@ public class KruskalLCUP {
         Scanner sc = new Scanner(System.in);
         System.out.println("Ecrire un nombre (10, 100 ou 1000): ");
         int nSommets = sc.nextInt();
+        System.out.println("Exécution...");
         g.creerGraphPeuDense(nSommets);
-        g.afficheGraphe();
 
         UnionFindUP ufls = new UnionFindUP();
 
         for (int sommet : g.getSommet()) {
             ufls.makeSet(sommet);
         }
-        ufls.affichePartition();
 
         ArrayList<Arete> bestArete = new ArrayList<>();
 
@@ -32,17 +31,14 @@ public class KruskalLCUP {
         int k = 0;
         g.getArete().sort(Comparator.comparingInt(Arete::getPoids));
         while (k < g.getSommet().size() - 1) {
-            System.out.println(k);
             for (int i = 0; i < g.getArete().size(); i++) {
                 Arete arete = g.getArete().get(i);
                 if (ufls.find(arete.getSommet1()) != ufls.find(arete.getSommet2())) {
-                    System.out.println("Poids de la prochaine arête : " + arete.getPoids());
                     ufls.union(arete.getSommet1(), arete.getSommet2());
                     bestArete.add(arete);
                     break;
                 }
             }
-            ufls.affichePartition();
             System.out.println("\nMeilleur chemin : ");
             int poidsTotal = 0;
             for (Arete a : bestArete) {
@@ -65,6 +61,7 @@ public class KruskalLCUP {
         Scanner sc = new Scanner(System.in);
         System.out.println("Ecrire un nombre (10, 100 ou 1000): ");
         int nSommets = sc.nextInt();
+        System.out.println("Exécution...");
         g.creerGraphTresDense(nSommets);
 
         UnionFindUP ufls = new UnionFindUP();
@@ -80,17 +77,14 @@ public class KruskalLCUP {
         int k = 0;
         g.getArete().sort(Comparator.comparingInt(Arete::getPoids));
         while (k < g.getSommet().size() - 1) {
-            System.out.println(k);
             for (int i = 0; i < g.getArete().size(); i++) {
                 Arete arete = g.getArete().get(i);
                 if (ufls.find(arete.getSommet1()) != ufls.find(arete.getSommet2())) {
-                    System.out.println("Poids de la prochaine arête : " + arete.getPoids());
                     ufls.union(arete.getSommet1(), arete.getSommet2());
                     bestArete.add(arete);
                     break;
                 }
             }
-            ufls.affichePartition();
             System.out.println("\nMeilleur chemin : ");
             int poidsTotal = 0;
             for (Arete a : bestArete) {
@@ -108,6 +102,8 @@ public class KruskalLCUP {
     }
 
     public static void main(String[] args) throws Exception {
-        kruskalTresDense();
+        kruskalPeuDense();
+        System.out.println("---------------------------");
+        kruskalPeuDense();
     }
 }

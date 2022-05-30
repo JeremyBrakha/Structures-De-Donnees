@@ -78,14 +78,12 @@ public class Graphe {
         for (int i = 0; i < (nbAreteMax - (taille_max - 1)); i++) {
 
             rand_poids = LireLigne.entierAleatoire(1, 1000);
-            // System.out.println(rand_poids);
             do {
                 rand_s1 = LireLigne.entierAleatoire(0, taille_max - 1);
                 rand_s2 = LireLigne.entierAleatoire(0, taille_max - 1);
                 a = new Arete(this.list_sommets.get(rand_s1), this.list_sommets.get(rand_s2), rand_poids);
             } while (rand_s1 == rand_s2 || this.contientArete(a));
 
-            // System.out.println(rand_s1 + " --- " + rand_s2);
             this.ajoutArete((a));
         }
     }
@@ -101,14 +99,12 @@ public class Graphe {
         for (int i = 0; i < (nbAreteMax - (taille_max - 1)); i++) {
 
             rand_poids = LireLigne.entierAleatoire(1, 1000);
-            System.out.println(rand_poids);
             do {
                 rand_s1 = LireLigne.entierAleatoire(0, taille_max - 1);
                 rand_s2 = LireLigne.entierAleatoire(0, taille_max - 1);
                 a = new Arete(this.list_sommets.get(rand_s1), this.list_sommets.get(rand_s2), rand_poids);
             } while (rand_s1 == rand_s2 || this.contientArete(a));
 
-            System.out.println(rand_s1 + " --- " + rand_s2);
             this.ajoutArete((a));
         }
     }

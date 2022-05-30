@@ -28,10 +28,6 @@ public class UnionFindUP {
     }
 
     public void union(int e1, int e2) throws Exception {
-
-        // System.out.println("Début Union avec Sommets : " + e1 + " et " + e2);
-
-
         boolean trouve_e1 = false;
         boolean trouve_e2 = false;
         int index_e1 = 0;
@@ -52,22 +48,17 @@ public class UnionFindUP {
         }
 
         // Création d'une liste issu des 2 anciennes listes
-        System.out.println(this.membres.get(index_e1).getListe().getTaille() + " et " + this.membres.get(index_e2).getListe().getTaille());
         if (this.membres.get(index_e1).getListe().getTaille() < this.membres.get(index_e2).getListe().getTaille()) {
             int index_temp = index_e1;
             index_e1 = index_e2;
             index_e2 = index_temp;
         }
-        System.out.println(this.membres.get(index_e1).getListe().getTaille() + " et " + this.membres.get(index_e2).getListe().getTaille());
 
         ListeChaineeUP new_list = this.membres.get(index_e1).getListe();
         ListeChaineeUP li_temp2 = this.membres.get(index_e2).getListe();
-        System.out.println(this.membres.get(index_e1).getRepresentant() + " : " + new_list);
-        System.out.println(this.membres.get(index_e2).getRepresentant() + " : " + li_temp2);
         Noeud n2 = li_temp2.tete();
 
         while (n2 != null) {
-            System.out.println(n2.getValeur());
             new_list.insererEnQueue(n2.getValeur());
             n2 = n2.getSuivant();
         }
@@ -88,7 +79,6 @@ public class UnionFindUP {
         // Création et Ajout de l'ensemble issu de l'union des 2 précédents, suppression
         // des anciens ensembles
         EnsembleUP new_ens = new EnsembleUP(this.membres.get(index_e1).getRepresentant(), new_list);
-        // System.out.println("NewEnsemble : " + new_ens.getRepresentant() + " " +
         // new_ens.getListe());
         this.membres.set(index_e1, new_ens);
         this.membres.remove(index_e2);
