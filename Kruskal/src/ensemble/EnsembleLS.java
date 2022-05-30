@@ -15,10 +15,6 @@ public class EnsembleLS {
         return this.representant;
     }
 
-    public void setRepresentant(int r) {
-        this.representant = r;
-    }
-
     public ListeChaineeS getListe() {
         return this.element;
     }

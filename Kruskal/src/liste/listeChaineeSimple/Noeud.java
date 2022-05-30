@@ -10,11 +10,6 @@ public class Noeud {
         nSuivant = null;
     }
 
-    public Noeud(int valeur, Noeud suivant) {
-        this.valeur = valeur;
-        this.nSuivant = suivant;
-    }
-
     public int getValeur() {
         return this.valeur;
     }
@@ -26,5 +21,4 @@ public class Noeud {
     public void setSuivant(Noeud nextNoeud) {
         this.nSuivant = nextNoeud;
     }
-
 }
