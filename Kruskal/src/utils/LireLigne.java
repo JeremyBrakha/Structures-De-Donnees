@@ -32,9 +32,11 @@ public class LireLigne {
         BufferedReader lecteurAvecBuffer = null;
         String ligne;
         // String exempleCheminWindows = "C:\\Users\\Eric Soutil\\Desktop\\essai.csv";
-        String exempleCheminLinux = "/home/user/Téléchargements/graphe.txt";
+        String exempleCheminWindows = "C:\\Users\\jrmbr\\Desktop\\Cours ENSIIE ING1\\S2\\SDD\\Structures-De-Donnees\\Kruskal\\src\\utils\\graphe.txt";
+
+        // String exempleCheminLinux = "/home/user/Téléchargements/graphe.txt";
         try {
-            lecteurAvecBuffer = new BufferedReader(new FileReader(exempleCheminLinux));
+            lecteurAvecBuffer = new BufferedReader(new FileReader(exempleCheminWindows));
             if ((ligne = lecteurAvecBuffer.readLine()) == null) {
                 System.out.println("Fichier vide");
             }
