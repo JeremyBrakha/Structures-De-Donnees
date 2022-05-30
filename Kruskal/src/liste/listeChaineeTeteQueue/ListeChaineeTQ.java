@@ -5,21 +5,12 @@ public class ListeChaineeTQ {
     private Noeud queue;
 
     public ListeChaineeTQ(int tete) {
-        this.tete = new Noeud(tete);
-        this.queue = null;
+        this.tete = new Noeud(tete, this);
+        this.queue = this.tete;
     }
 
-    public ListeChaineeTQ(int tete, int queue) {
-        this.tete = new Noeud(tete);
-        this.queue = new Noeud(queue);
-    }
-
-    public boolean teteEstVide() {
+    public boolean listeVide() {
         return this.tete == null;
-    }
-
-    public boolean queueEstVide() {
-        return this.queue == null;
     }
 
     public Noeud tete() {
@@ -28,13 +19,13 @@ public class ListeChaineeTQ {
 
     public void insererEnQueue(int x) {
         // Cas où la liste est vide
-        if (this.teteEstVide()) {
+        if (this.listeVide()) {
             this.tete = new Noeud(x, this);
-        } else if (this.queueEstVide()) {
-            this.queue = new Noeud(x, this);
+            this.queue = this.tete;
         } else {
             // Cas où la liste n'est pas vide, on set directement après la queue
             this.queue.setSuivant(new Noeud(x, this));
+            this.queue = this.queue.getSuivant();
         }
     }
 
@@ -53,7 +44,6 @@ public class ListeChaineeTQ {
                 present = true;
             p = p.getSuivant();
         }
-
         return present;
     }
 }

@@ -22,7 +22,6 @@ public class Noeud {
         this.valeur = valeur;
         this.liste = liste;
         this.nSuivant = null;
-
     }
 
     public int getValeur() {

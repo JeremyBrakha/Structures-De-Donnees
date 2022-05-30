@@ -108,7 +108,7 @@ public class KruskalLCS {
     }
 
     public static void main(String[] args) throws Exception {
-        kruskalPeuDense();
+        //kruskalPeuDense();
         kruskalTresDense();
     }
 }
