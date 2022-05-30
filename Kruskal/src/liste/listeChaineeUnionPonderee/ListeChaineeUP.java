@@ -6,23 +6,15 @@ public class ListeChaineeUP {
     private int taille;
 
     public ListeChaineeUP(int tete) {
-        this.tete = new Noeud(tete);
+        this.tete = new Noeud(tete, this);
         this.taille = 1;
-        this.queue = null;
+        this.queue = this.tete;
     }
 
-    public ListeChaineeUP(int tete, int queue) {
-        this.tete = new Noeud(tete);
-        this.queue = new Noeud(queue);
-    }
-
-    public boolean teteEstVide() {
+    public boolean listVide() {
         return this.tete == null;
     }
 
-    public boolean queueEstVide() {
-        return this.queue == null;
-    }
     public int getTaille() {
         return this.taille;
     }
@@ -33,13 +25,15 @@ public class ListeChaineeUP {
 
     public void insererEnQueue(int x) {
         // Cas où la liste est vide
-        if (this.teteEstVide()) {
+        if (this.listVide()) {
             this.tete = new Noeud(x, this);
-        } else if (this.queueEstVide()) {
-            this.queue = new Noeud(x, this);
+            this.queue = this.tete;
+            this.taille = 1;
         } else {
             // Cas où la liste n'est pas vide, on set directement après la queue
             this.queue.setSuivant(new Noeud(x, this));
+            this.queue = this.queue.getSuivant();
+            this.taille = this.taille + 1;
         }
     }
 
@@ -58,7 +52,23 @@ public class ListeChaineeUP {
                 present = true;
             p = p.getSuivant();
         }
-
         return present;
+    }
+
+    public String toString() {
+        String s = "[ ";
+
+        if (this.listVide())
+            s = s + "Chaîne vide";
+        else {
+            // Parcours de la liste
+            Noeud p = tete;
+            while (p != null) {
+                s = s + p.getValeur() + " ";
+                // Avancer d'un noeud dans la liste
+                p = p.getSuivant();
+            }
+        }
+        return s + "]";
     }
 }

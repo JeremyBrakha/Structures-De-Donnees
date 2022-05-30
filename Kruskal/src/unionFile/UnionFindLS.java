@@ -57,7 +57,6 @@ public class UnionFindLS {
         ListeChaineeS li_temp2 = this.membres.get(index_e2).getListe();
         System.out.println(this.membres.get(index_e1).getRepresentant() + " : " + new_list);
         System.out.println(this.membres.get(index_e2).getRepresentant() + " : " + li_temp2);
-        Noeud n1 = new_list.tete();
         Noeud n2 = li_temp2.tete();
 
         while (n2 != null) {

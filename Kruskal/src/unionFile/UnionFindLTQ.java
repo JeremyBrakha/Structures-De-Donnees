@@ -55,7 +55,6 @@ public class UnionFindLTQ {
         ListeChaineeTQ li_temp2 = this.membres.get(index_e2).getListe();
         System.out.println(this.membres.get(index_e1).getRepresentant() + " : " + new_list);
         System.out.println(this.membres.get(index_e2).getRepresentant() + " : " + li_temp2);
-        Noeud n1 = new_list.tete();
         Noeud n2 = li_temp2.tete();
 
         while (n2 != null) {
@@ -63,6 +62,7 @@ public class UnionFindLTQ {
             n2 = n2.getSuivant();
         }
 
+        /*
         // Détermination du représentant au hasard
         int new_rep;
         // Random ran = new Random();
@@ -73,9 +73,11 @@ public class UnionFindLTQ {
             new_rep = this.membres.get(index_e2).getRepresentant();
         }
 
+         */
+
         // Création et Ajout de l'ensemble issu de l'union des 2 précédents, suppression
         // des anciens ensembles
-        EnsembleLTQ new_ens = new EnsembleLTQ(new_rep, new_list);
+        EnsembleLTQ new_ens = new EnsembleLTQ(this.membres.get(index_e1).getRepresentant(), new_list);
         // System.out.println("NewEnsemble : " + new_ens.getRepresentant() + " " +
         // new_ens.getListe());
         this.membres.set(index_e1, new_ens);
