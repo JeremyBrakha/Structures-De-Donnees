@@ -22,11 +22,17 @@ public class ListeChaineeTQ {
         return this.queue == null;
     }
 
+    public Noeud tete() {
+        return this.tete;
+    }
+
     public void insererEnQueue(int x) {
         // Cas où la liste est vide
-        if (this.teteEstVide())
+        if (this.teteEstVide()) {
             this.tete = new Noeud(x, this);
-        else {
+        } else if (this.queueEstVide()) {
+            this.queue = new Noeud(x, this);
+        } else {
             // Cas où la liste n'est pas vide, on set directement après la queue
             this.queue.setSuivant(new Noeud(x, this));
         }
