@@ -10,6 +10,7 @@ import unionFile.UnionFindLTQ;
 
 public class kruskalLCTQ {
     public static void kruskalPeuDense() throws Exception {
+        long debutInstance = System.currentTimeMillis();
         Graphe g = new Graphe();
         Scanner sc = new Scanner(System.in);
         System.out.println("Ecrire un nombre (10, 100 ou 1000): ");
@@ -25,8 +26,9 @@ public class kruskalLCTQ {
         ufls.affichePartition();
 
         ArrayList<Arete> bestArete = new ArrayList<>();
-        // algorithme de Kruskal
 
+        // algorithme de Kruskal
+        long debutTri = System.currentTimeMillis();
         int k = 0;
         g.getArete().sort(Comparator.comparingInt(Arete::getPoids));
         while (k < g.getSommet().size() - 1) {
@@ -47,9 +49,15 @@ public class kruskalLCTQ {
             }
             k++;
         }
+        System.out.println("Temps de résolution du tri des arêtes : " + (System.currentTimeMillis() - debutTri)
+                + " millisecondes");
+
+        System.out.println("Temps de résolution global de l'instance : " + (System.currentTimeMillis() - debutInstance)
+                + " millisecondes");
     }
 
     public static void kruskalTresDense() throws Exception {
+        long debutInstance = System.currentTimeMillis();
         Graphe g = new Graphe();
         Scanner sc = new Scanner(System.in);
         System.out.println("Ecrire un nombre (10, 100 ou 1000): ");
@@ -63,8 +71,9 @@ public class kruskalLCTQ {
         }
 
         ArrayList<Arete> bestArete = new ArrayList<>();
-        // algorithme de Kruskal
 
+        // algorithme de Kruskal
+        long debutTri = System.currentTimeMillis();
         int k = 0;
         g.getArete().sort(Comparator.comparingInt(Arete::getPoids));
         while (k < g.getSommet().size() - 1) {
@@ -85,6 +94,11 @@ public class kruskalLCTQ {
             }
             k++;
         }
+        System.out.println("Temps de résolution du tri des arêtes : " + (System.currentTimeMillis() - debutTri)
+                + " millisecondes");
+
+        System.out.println("Temps de résolution global de l'instance : " + (System.currentTimeMillis() - debutInstance)
+                + " millisecondes");
     }
 
     public static void main(String[] args) throws Exception {
