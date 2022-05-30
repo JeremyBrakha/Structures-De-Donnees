@@ -44,9 +44,12 @@ public class kruskalLCTQ {
             }
             ufls.affichePartition();
             System.out.println("\nMeilleur chemin : ");
+            int poidsTotal = 0;
             for (Arete a : bestArete) {
                 a.afficheArete();
+                poidsTotal += a.getPoids();
             }
+            System.out.println("Poids total du meilleur chemin : " + poidsTotal);
             k++;
         }
         System.out.println("Temps de résolution du tri des arêtes : " + (System.currentTimeMillis() - debutTri)
@@ -89,9 +92,12 @@ public class kruskalLCTQ {
             }
             ufls.affichePartition();
             System.out.println("\nMeilleur chemin : ");
+            int poidsTotal = 0;
             for (Arete a : bestArete) {
                 a.afficheArete();
+                poidsTotal += a.getPoids();
             }
+            System.out.println("Poids total du meilleur chemin : " + poidsTotal);
             k++;
         }
         System.out.println("Temps de résolution du tri des arêtes : " + (System.currentTimeMillis() - debutTri)
