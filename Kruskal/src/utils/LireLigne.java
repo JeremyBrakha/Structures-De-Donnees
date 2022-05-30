@@ -31,22 +31,21 @@ public class LireLigne {
     public static void main(String[] argv) throws IOException {
         BufferedReader lecteurAvecBuffer = null;
         String ligne;
-        //String exempleCheminWindows = "C:\\Users\\Eric Soutil\\Desktop\\essai.csv";
+        // String exempleCheminWindows = "C:\\Users\\Eric Soutil\\Desktop\\essai.csv";
         String exempleCheminLinux = "/home/user/Téléchargements/graphe.txt";
         try {
             lecteurAvecBuffer = new BufferedReader(new FileReader(exempleCheminLinux));
-            if((ligne = lecteurAvecBuffer.readLine()) == null) {
+            if ((ligne = lecteurAvecBuffer.readLine()) == null) {
                 System.out.println("Fichier vide");
             }
 
             String[] tab = ligne.split(" ");
             int[][] data = new int[tab.length][tab.length];
-            for(int i = 0; i < tab.length ; i++){
+            for (int i = 0; i < tab.length; i++) {
                 data[0][i] = Integer.parseInt(tab[i]);
             }
             int k = 1;
             while ((ligne = lecteurAvecBuffer.readLine()) != null) {
-                //System.out.println(ligne);
                 tab = ligne.split(" ");
                 for (int i = 0; i < tab.length; i++) {
                     data[k][i] = Integer.parseInt(tab[i]);
@@ -56,29 +55,28 @@ public class LireLigne {
             lecteurAvecBuffer.close();
 
             System.out.println("\nFichier graph:");
-            for(int i = 0; i < data.length; i++){
-                for(int j = 0; j < data[i].length; j++){
+            for (int i = 0; i < data.length; i++) {
+                for (int j = 0; j < data[i].length; j++) {
                     System.out.print(" " + data[i][j]);
                 }
                 System.out.println(" ");
             }
 
             Graphe g = new Graphe();
-            for(int i = 0; i < data.length; i++){
+            for (int i = 0; i < data.length; i++) {
                 g.ajoutSommet(i);
             }
-            for(int i = 0; i < data.length; i++){
-                for(int j = 0; j < data[i].length; j++){
-                    if(data[i][j] > 0){
+            for (int i = 0; i < data.length; i++) {
+                for (int j = 0; j < data[i].length; j++) {
+                    if (data[i][j] > 0) {
                         Arete a = new Arete(i, j, data[i][j]);
-                        if(!g.contientArete(a))
+                        if (!g.contientArete(a))
                             g.ajoutArete(a);
                     }
                 }
             }
             System.out.println("\nGraph créé:");
             g.afficheGraphe();
-
 
         } catch (FileNotFoundException exc) {
             System.out.println("Erreur d'ouverture");
